@@ -1,0 +1,49 @@
+<h1>Find Friends</h1>
+
+<!--
+<ul>
+    <li>latitude : </li>
+    <li>longitude : </li>
+    <li>Distance : </li>
+</ul>
+-->
+    
+
+    <form action="/search/find/" method="post">{% csrf_token %}
+        Latitude: 
+        <h5>
+            <input type="number" placeholder="0.00" required name="ip_lat" min="0" value="0" step="0.000001" title="Currency" pattern="^\d+(?:\.\d{1,2,3,4,5,6})?$" onblur="
+            this.parentNode.parentNode.style.backgroundColor=/^\d+(?:\.\d{1,2})?$/.test(this.value)?'inherit':'white'
+            ">
+            </h5>
+            longitude:
+            <h5>
+                <input type="number" placeholder="0.00" required name="ip_lon" min="0" value="0" step="0.000001" title="Currency" pattern="^\d+(?:\.\d{1,2,3,4,5,6})?$" onblur="
+                this.parentNode.parentNode.style.backgroundColor=/^\d+(?:\.\d{1,2})?$/.test(this.value)?'inherit':'white'
+                ">
+                </h5>
+                Distance:
+                <h5>
+                    <input type="number" placeholder="0.00" required name="ip_dist" min="0" value="0" step="0.000001" title="Currency" pattern="^\d+(?:\.\d{1,2,3,4,5,6})?$" onblur="
+                    this.parentNode.parentNode.style.backgroundColor=/^\d+(?:\.\d{1,2})?$/.test(this.value)?'inherit':'white'
+                    ">
+                    </h5>
+
+                    <h5>
+                            <input type="submit" value="submit" />
+                        </h5>
+    </form>
+
+    <h1>Fried List : </h1>
+
+    <ul>
+        {% for user_item in friend_users %}
+        <h5>Details of user : </h5>
+        <li>name : {{ user_item.name }}</li>
+        <li>user id : {{ user_item.user_id }}</li>
+        <li>latitude : {{ user_item.latitutude }}</li>
+        <li>longitude : {{ user_item.longitude }}</li>
+        {% endfor %}
+    </ul>
+
+     
